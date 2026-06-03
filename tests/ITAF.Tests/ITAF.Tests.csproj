@@ -24,7 +24,7 @@
   <ItemGroup>
     <None Include="..\..\config\appsettings.json" Link="appsettings.json" CopyToOutputDirectory="PreserveNewest" />
     <None Include="..\..\config\appsettings.local.json" Link="appsettings.local.json" CopyToOutputDirectory="PreserveNewest" />
+    <None Include="..\..\config\appsettings.ci.json" Link="appsettings.ci.json" CopyToOutputDirectory="PreserveNewest" />
     <None Include="reqnroll.json" CopyToOutputDirectory="PreserveNewest" />
   </ItemGroup>
 </Project>
-

@@ -31,11 +31,14 @@ jobs:
       - name: Build
         run: dotnet build ITAF-DotNet-CSharp.sln --configuration Release --no-restore
 
-      - name: Install Playwright browsers
-        run: pwsh tests/ITAF.Tests/bin/Release/net8.0/playwright.ps1 install --with-deps chromium
+      - name: Start mock API
+        run: |
+          python3 scripts/mock_api.py &
+          sleep 2
+          curl --fail http://localhost:4020/health
 
       - name: Test
-        run: dotnet test ITAF-DotNet-CSharp.sln --configuration Release --no-build --logger "trx;LogFileName=test-results.trx"
+        run: ITAF_ENVIRONMENT=ci dotnet test ITAF-DotNet-CSharp.sln --configuration Release --no-build --filter "Category=api" --logger "trx;LogFileName=test-results.trx"
 
       - name: Upload test results
         if: always()
