@@ -1,6 +1,8 @@
 name: ITAF CI
 
 on:
+  schedule:
+    - cron: "0 20 * * *"
   push:
     branches:
       - main
@@ -43,4 +45,3 @@ jobs:
           path: |
             **/TestResults/*.trx
             reports/**
-
