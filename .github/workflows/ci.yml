@@ -38,7 +38,7 @@ jobs:
           curl --fail http://localhost:4020/health
 
       - name: Test
-        run: ITAF_ENVIRONMENT=ci dotnet test ITAF-DotNet-CSharp.sln --configuration Release --no-build --filter "Category=api" --logger "trx;LogFileName=test-results.trx"
+        run: ITAF_ENVIRONMENT=ci dotnet test ITAF-DotNet-CSharp.sln --configuration Release --no-build --filter "TestCategory=api" --logger "trx;LogFileName=test-results.trx"
 
       - name: Upload test results
         if: always()
