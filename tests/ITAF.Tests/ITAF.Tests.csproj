@@ -1,0 +1,30 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <IsPackable>false</IsPackable>
+    <IsTestProject>true</IsTestProject>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\src\ITAF.Core\ITAF.Core.csproj" />
+    <ProjectReference Include="..\..\src\ITAF.UI\ITAF.UI.csproj" />
+    <ProjectReference Include="..\..\src\ITAF.API\ITAF.API.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Allure.NUnit" />
+    <PackageReference Include="FluentAssertions" />
+    <PackageReference Include="Microsoft.NET.Test.Sdk" />
+    <PackageReference Include="NUnit" />
+    <PackageReference Include="NUnit3TestAdapter" />
+    <PackageReference Include="Reqnroll" />
+    <PackageReference Include="Reqnroll.NUnit" />
+    <PackageReference Include="Reqnroll.Tools.MsBuild.Generation" PrivateAssets="all" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="..\..\config\appsettings.json" Link="appsettings.json" CopyToOutputDirectory="PreserveNewest" />
+    <None Include="..\..\config\appsettings.local.json" Link="appsettings.local.json" CopyToOutputDirectory="PreserveNewest" />
+    <None Include="reqnroll.json" CopyToOutputDirectory="PreserveNewest" />
+  </ItemGroup>
+</Project>
+

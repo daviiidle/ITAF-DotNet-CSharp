@@ -1,0 +1,14 @@
+bin/
+obj/
+.vs/
+.vscode/
+TestResults/
+reports/
+playwright-report/
+allure-results/
+allure-report/
+*.trx
+*.log
+*.user
+*.suo
+
