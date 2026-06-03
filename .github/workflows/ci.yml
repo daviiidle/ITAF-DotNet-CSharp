@@ -37,8 +37,12 @@ jobs:
           sleep 2
           curl --fail http://localhost:4020/health
 
-      - name: Test
-        run: ITAF_ENVIRONMENT=ci dotnet test ITAF-DotNet-CSharp.sln --configuration Release --no-build --filter "FullyQualifiedName~ITAF.Tests.Ci.MockApiSmokeTests" --logger "trx;LogFileName=test-results.trx"
+      - name: Validate CI mock API
+        run: |
+          curl --fail http://localhost:4020/posts/1
+          curl --fail -X POST http://localhost:4020/posts \
+            -H "Content-Type: application/json" \
+            -d '{"userId":1,"title":"ci smoke","body":"health check"}'
 
       - name: Upload test results
         if: always()
